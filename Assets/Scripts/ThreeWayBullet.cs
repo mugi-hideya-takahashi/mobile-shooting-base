@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ThreeWayBullet : MonoBehaviour, IPlayerBullet
 {
-    private Vector3 m_leftPosition;
-    private Vector3 m_centerPosition;
-    private Vector3 m_rightPosition;
+    private Vector3 m_leftPosition = new Vector3(0.0f, 10.0f, 0.0f);
+    private Vector3 m_centerPosition = new Vector3(0.0f, 10.0f, 0.0f);
+    private Vector3 m_rightPosition = new Vector3(0.0f, 10.0f, 0.0f);
 
     [SerializeField]
     private GameObject leftBullet;
@@ -20,11 +20,6 @@ public class ThreeWayBullet : MonoBehaviour, IPlayerBullet
     void Awake()
     {
         m_isAlive = true;
-#if false
-        m_leftPosition = new Vector3();
-        m_centerPosition = this.gameObject.transform.localPosition;
-        m_rightPosition = this.gameObject.transform.localPosition;
-#endif
 
         SpriteRenderer renderer = leftBullet.gameObject.GetComponent<SpriteRenderer>();
         renderer.color = Color.blue;
@@ -51,17 +46,17 @@ public class ThreeWayBullet : MonoBehaviour, IPlayerBullet
     {
         if (m_isAlive)
         {
-            if (m_centerPosition.y >= 10.0f)
+            if (m_centerPosition.y >= 3300.0f)
             {
                 m_isAlive = false;
             }
-            m_centerPosition.Set(m_centerPosition.x, m_centerPosition.y + 0.05f, m_centerPosition.z);
+            m_centerPosition.Set(m_centerPosition.x, m_centerPosition.y + 5f, m_centerPosition.z);
             centerBullet.transform.SetLocalPositionAndRotation(m_centerPosition, Quaternion.identity);
 
-            m_leftPosition.Set(m_leftPosition.x - 0.01f, m_leftPosition.y + 0.05f, m_leftPosition.z);
+            m_leftPosition.Set(m_leftPosition.x - 1f, m_leftPosition.y + 5f, m_leftPosition.z);
             leftBullet.transform.SetLocalPositionAndRotation(m_leftPosition, Quaternion.identity);
 
-            m_rightPosition.Set(m_rightPosition.x + 0.01f, m_rightPosition.y + 0.05f, m_rightPosition.z);
+            m_rightPosition.Set(m_rightPosition.x + 1f, m_rightPosition.y + 5f, m_rightPosition.z);
             rightBullet.transform.SetLocalPositionAndRotation(m_rightPosition, Quaternion.identity);
 
             //Debug.Log("pos:" + m_centerPosition);

@@ -27,9 +27,9 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         posX = 0.0f;
-        posY = -4.0f;
+        posY = -1300.0f;
 
-        playerObj.transform.SetLocalPositionAndRotation(new Vector3(posX, -4.0f, 0.0f), Quaternion.identity);
+        playerObj.transform.SetLocalPositionAndRotation(new Vector3(posX, -1300.0f, 0.0f), Quaternion.identity);
 
         m_listPlayerBullets = new List<IPlayerBullet>();
 
@@ -66,30 +66,30 @@ public class PlayerManager : MonoBehaviour
         // ç∂âE
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            posX -= 0.01f;
+            posX -= 2.0f;
             isChange = true;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            posX += 0.01f;
+            posX += 2.0f;
             isChange = true;
         }
 
         //è„â∫
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            posY += 0.01f;
+            posY += 2.0f;
             isChange = true;
         }else if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            posY -= 0.01f;
+            posY -= 2.0f;
             isChange = true;
         }
 
         if (isChange)
         {
-            posX = Mathf.Clamp(posX, -2.7f, 2.7f);
-            posY = Mathf.Clamp(posY, -4.8f, 4.0f);
+            posX = Mathf.Clamp(posX, -870f, 870f);
+            posY = Mathf.Clamp(posY, -1500.0f, 1350.0f);
 
             playerObj.transform.SetLocalPositionAndRotation(new Vector3(posX, posY/*-4.0f*/, 0.0f), Quaternion.identity);
         }

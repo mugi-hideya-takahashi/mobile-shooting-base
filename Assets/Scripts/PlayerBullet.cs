@@ -20,9 +20,9 @@ public class PlayerBullet : MonoBehaviour, IPlayerBullet
         m_isAlive = true;
         m_myObj = this.gameObject;
         m_myPosition = this.gameObject.transform.localPosition;
-
+        m_myPosition.y += 10.0f;
         SpriteRenderer renderer = this.gameObject.GetComponent<SpriteRenderer>();
-        renderer.color = Color.gray;
+        renderer.color = Color.green;
     }
 
     public bool IsAlive()
@@ -43,11 +43,11 @@ public class PlayerBullet : MonoBehaviour, IPlayerBullet
     {
         if (m_isAlive)
         {
-            if (m_myPosition.y >= 10.0f)
+            if (m_myPosition.y >= 3300.0f)
             {
                 m_isAlive = false;
             }
-            m_myPosition.Set(m_myPosition.x, m_myPosition.y + 0.05f, m_myPosition.z);
+            m_myPosition.Set(m_myPosition.x, m_myPosition.y + 5f, m_myPosition.z);
             m_myObj.transform.SetLocalPositionAndRotation(m_myPosition, Quaternion.identity);
 
             //Debug.Log("pos:" + m_myPosition);

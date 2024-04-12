@@ -20,7 +20,7 @@ public class PlayerBullet : MonoBehaviour, IPlayerBullet
         m_isAlive = true;
         m_myObj = this.gameObject;
         m_myPosition = this.gameObject.transform.localPosition;
-        m_myPosition.y += 10.0f;
+        m_myPosition.y += 100.0f;
         SpriteRenderer renderer = this.gameObject.GetComponent<SpriteRenderer>();
         renderer.color = Color.green;
     }

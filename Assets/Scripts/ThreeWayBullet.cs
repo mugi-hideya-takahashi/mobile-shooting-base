@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ThreeWayBullet : MonoBehaviour, IPlayerBullet
 {
-    private Vector3 m_leftPosition = new Vector3(0.0f, 10.0f, 0.0f);
-    private Vector3 m_centerPosition = new Vector3(0.0f, 10.0f, 0.0f);
-    private Vector3 m_rightPosition = new Vector3(0.0f, 10.0f, 0.0f);
+    private Vector3 m_leftPosition = new Vector3(0.0f, 100.0f, 0.0f);
+    private Vector3 m_centerPosition = new Vector3(0.0f, 100.0f, 0.0f);
+    private Vector3 m_rightPosition = new Vector3(0.0f, 100.0f, 0.0f);
 
     [SerializeField]
     private GameObject leftBullet;
